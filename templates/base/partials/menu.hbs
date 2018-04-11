@@ -1,0 +1,99 @@
+<section id="navArea">
+    {{#if hasErrors}}
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{#each messages}}
+        <strong>Error!</strong>
+        <p>{{this}}</p>
+        {{/each}}
+    </div>
+    {{/if}}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav main_nav">
+                <li class="active"><a href="../"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
+                <li><a href="#">Technology</a></li>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Android</a></li>
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Nokia</a></li>
+                        <li><a href="#">Walton Mobile</a></li>
+                        <li><a href="#">Sympony</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Laptops</a></li>
+                <li><a href="#">Tablets</a></li>
+                <li><a href="pages/contact.html">Contact Us</a></li>
+                <li><a href="pages/404.html">404 Page</a></li>
+            </ul>
+            <ul class="nav navbar-nav main_nav pull-right">
+                {{#if logged}}
+                <li><a href="/thanh-vien/tai-khoan">Hồ Sơ</a></li>
+                <li><a href="/thanh-vien/dang-xuat">Đăng xuất</a></li>
+                {{else}}
+                <li>
+                    <!-- <a href="/thanh-vien/dang-nhap">Đăng nhập</a> -->
+                    <a href="#" data-toggle="modal" data-target="#myModal">Đăng nhập</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h1 class="title">Thành viên đăng nhập</h1>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <!--Middle Part Start-->
+                                            <div id="content" class="col-sm-9">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h3 class="subtitle">Đăng nhập bằng tài khoản mạng xã hội </h3>
+                                                        <p style="margin-top:40px;padding-top: 20px;">
+                                                            <a style="margin-bottom: 20px;background: #3b5998;border-color: #3b5998;" class="btn btn-danger btn-block" href="/khach-hang/facebook">Đăng nhập bằng Facebook</a>
+                                                            <a class="btn btn-danger btn-block" href="/khach-hang/google">Đăng nhập bằng Google</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <form method="post" action="/">
+                                                            <h3 class="subtitle">Thành viên đăng nhập</h3>
+                                                            <p><strong>Nếu bạn đã có tài khoản trước đó vui lòng nhâp thông tin vào bến dưới để đăng nhập hệ thống.</strong></p>
+                                                            <div class="form-group">
+                                                                <label class="control-label" for="input-email">Địa chỉ E-Mail</label>
+                                                                <input type="text" name="email" value="" placeholder="Xin mời nhập địa chỉ E-Mail" id="input-email" class="form-control" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label" for="input-password">Mật khẩu đăng nhập</label>
+                                                                <input type="password" name="password" value="" placeholder="Nhập mật khẩu của quý khách" id="input-password" class="form-control" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <a href="/khach-hang/quen-mat-khau">Quý khách quên mật khẩu và muốn khôi phục ngay?</a>
+                                                            </div>
+                                                            <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+                                                            <input type="submit" value="Đăng nhập" class="btn btn-primary" />
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Middle Part End -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/thanh-vien/dang-ky">Đăng ký</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
+</section>
